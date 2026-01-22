@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservar - Moto Taxi Betancourt</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="preloader"><div class="spinner"></div></div>
+    
+    <header class="site-header">
+        <a class="logo" href="inicio.html">MOTO TAXI <span>BETANCOURT</span></a>
+        <nav class="main-nav">
+            <a href="inicio.html">Inicio</a>
+            <a href="servicio.html">Servicios</a>
+            <a href="tarifa.html">Tarifas</a>
+            <a href="reserva.html">Reserva</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <h2 style="color:#ffcc00; text-align: center; margin-bottom: 25px;">RESERVA TU VIAJE</h2>
+            <form id="reservaForm">
+                <div class="form-group">
+                    <label>TIPO DE SERVICIO</label>
+                    <select id="tipoServicio" required>
+                        <option value="Urbano" data-precio="2.00">Express Urbano ($2.00)</option>
+                        <option value="Mensajeria" data-precio="3.00">Mensajería / Encomienda ($3.00)</option>
+                        <option value="Nocturno" data-precio="5.00">Servicio Nocturno ($5.00)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>PRECIO ESTIMADO</label>
+                    <input type="text" id="precioMostrado" value="$2.00" readonly style="color: #ffcc00; font-weight: bold; border: 1px solid rgba(255,204,0,0.3);">
+                </div>
+
+                <div class="form-group">
+                    <label>NOMBRE COMPLETO</label>
+                    <input type="text" id="nombre" placeholder="Ej: Juan Pérez" required>
+                </div>
+
+                <div class="form-group">
+                    <label>PUNTO DE RECOGIDA</label>
+                    <input type="text" id="origen" placeholder="¿Dónde te encuentras?" required>
+                </div>
+
+                <div class="form-group">
+                    <label>PUNTO DE DESTINO</label>
+                    <input type="text" id="destino" placeholder="¿A dónde quieres ir?" required>
+                </div>
+
+                <button type="submit" class="btn-enviar">CONFIRMAR VIAJE</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
