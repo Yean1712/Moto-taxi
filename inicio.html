@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moto Taxi Betancourt | Servicios Valera</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* PANTALLA DE BIENVENIDA (SPLASH) */
+        #splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0a0a0a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000; /* Por encima de todo */
+            transition: opacity 0.8s ease, visibility 0.8s;
+        }
+
+        .splash-content {
+            text-align: center;
+            animation: pulse 2s infinite ease-in-out;
+        }
+
+        .splash-welcome {
+            color: #ffffff;
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .splash-logo {
+            color: #ffcc00;
+            font-size: 3rem;
+            font-weight: 900;
+        }
+
+        .splash-logo span {
+            color: #fff;
+        }
+
+        /* Animación de pulso */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+        }
+
+        /* Clase para ocultar el splash */
+        .hidden-splash {
+            opacity: 0;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="splash-screen">
+        <div class="splash-content">
+            <p class="splash-welcome">BIENVENIDO A</p>
+            <h2 class="splash-logo">SERVICIOS <span>VALERA</span></h2>
+            <div class="spinner" style="margin: 20px auto;"></div>
+        </div>
+    </div>
+
+    <header class="site-header">
+        <a class="logo" href="inicio.html">Servicios <span>Valera</span></a>
+        <nav class="main-nav">
+            <a href="inicio.html">Inicio</a>
+            <a href="servicio.html">Servicios</a>
+            <a href="tarifa.html">Tarifas</a>
+            <a href="reserva.html">Reserva</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="hero-slider">
+        <div class="slide"></div><div class="slide"></div><div class="slide"></div>
+        <div class="hero-content" style="position: relative; z-index: 5; text-align: center;">
+            <h1 style="font-size: 3rem; font-weight: 900; color: #ffcc00; text-shadow: 2px 2px 10px rgba(0,0,0,0.8);">Servicios Valera</h1>
+            <p style="font-size: 1.2rem; margin-bottom: 25px; color: #eee;">Rapidez y Seguridad en Valera las 24 Horas.</p>
+            <div id="status-horario" style="margin-bottom: 20px; display: inline-flex; align-items: center; background: rgba(0,0,0,0.5); padding: 8px 15px; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1);">
+    <span id="punto-status" style="height: 10px; width: 10px; border-radius: 50%; display: inline-block; margin-right: 10px; box-shadow: 0 0 10px currentColor;"></span>
+    <span id="texto-status" style="font-size: 0.85rem; font-weight: bold; letter-spacing: 1px; text-transform: uppercase;">Cargando estado...</span>
+</div>
+
+            <a href="reserva.html" class="btn-enviar" style="text-decoration: none; padding: 15px 40px; display: inline-block; width: auto;">PEDIR MOTO AHORA</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="card" style="text-align: center;">
+            <h3 style="color: #ffcc00; margin-bottom: 10px;">⚡ VELOCIDAD</h3>
+            <p style="color: #ccc;">Llegamos a cualquier punto de Valera en tiempo récord.</p>
+        </div>
+    </div>
+<div class="container" style="padding-top: 0;">
+    <div class="card" style="border-left: 5px solid #ffcc00;">
+        <h2 style="color: #ffcc00; font-size: 1.5rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+            🛡️ PROTOCOLO DE SEGURIDAD
+        </h2>
+        <p style="color: #ccc; font-size: 0.95rem; margin-bottom: 20px;">
+            En <b>Moto Taxi Betancourt</b>, tu integridad es nuestra prioridad. No solo llegamos rápido, llegamos bien.
+        </p>
+        
+        <div style="display: grid; grid-template-columns: 1fr; gap: 15px;">
+            <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; display: flex; align-items: center; gap: 15px;">
+                <span style="font-size: 1.5rem;">🪖</span>
+                <p style="font-size: 0.85rem; color: #eee;"><b style="color: #ffcc00;">Casco Certificado:</b> Uso obligatorio de casco para conductor y pasajero.</p>
+            </div>
+            
+            <div style="background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; display: flex; align-items: center; gap: 15px;">
+                <span style="font-size: 1.5rem;">🆔</span>
+                <p style="font-size: 0.85rem; color: #eee;"><b style="color: #ffcc00;">Conductores VIP:</b> Personal identificado, verificado y con amplia experiencia en Valera.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const splash = document.getElementById('splash-screen');
+            // Se queda 2.5 segundos y luego desaparece
+            setTimeout(() => {
+                splash.classList.add('hidden-splash');
+            }, 2500); 
+        });
+    </script>
+<script>
+function actualizarHorario() {
+    const ahora = new Date();
+    const hora = ahora.getHours();
+    const statusPunto = document.getElementById('punto-status');
+    const statusTexto = document.getElementById('texto-status');
+
+    // CONFIGURACIÓN DE TU HORARIO:
+    // Aquí dice que de 6:00 AM (6) a 10:00 PM (22) están activos.
+    if (hora >= 6 && hora < 22) {
+        statusPunto.style.backgroundColor = "#00ff00"; // Verde
+        statusPunto.style.color = "#00ff00";
+        statusTexto.innerText = "🟢 ESTAMOS ACTIVOS AHORA";
+        statusTexto.style.color = "#00ff00";
+    } else {
+        statusPunto.style.backgroundColor = "#ffcc00"; // Amarillo (Modo nocturno/reducido)
+        statusPunto.style.color = "#ffcc00";
+        statusTexto.innerText = "🌙 SERVICIO NOCTURNO ACTIVO";
+        statusTexto.style.color = "#ffcc00";
+    }
+}
+
+// Ejecutar al cargar
+actualizarHorario();
+</script>
+
+</body>
+</html>
