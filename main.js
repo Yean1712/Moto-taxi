@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // 1. LISTA DE COMPAÑEROS (Configura aquí los números de tu equipo)
     const conductores = [
         { nombre: "Yean", telefono: "584247531915" }, // Número original
-        { nombre: "Karla", telefono: "584149124120" },
     ];
 
     // Selección aleatoria del conductor (Tipo Didi/Uber)
